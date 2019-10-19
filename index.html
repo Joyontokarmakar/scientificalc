@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function insert(num) {
+            document.form.textview.value = document.form.textview.value + num
+        }
+
+        function clean() {
+            document.form.textview.value = "";
+        }
+
+        function back() {
+            var exp = document.form.textview.value;
+            document.form.textview.value = exp.substring(0, exp.length - 1);
+        }
+
+        function equal() {
+            var exp = document.form.textview.value;
+            if (exp) {
+                document.form.textview.value = eval(exp)
+            }
+        }
+
+        function sn() {
+            document.form.textview.value = Math.sin(document.form.textview.value)
+        }
+
+        function cs() {
+            document.form.textview.value = Math.cos(document.form.textview.value)
+        }
+
+        function tn() {
+            document.form.textview.value = Math.tan(document.form.textview.value)
+        }
+
+        function lg() {
+            document.form.textview.value = Math.log(document.form.textview.value)
+        }
+
+        function abs() {
+            document.form.textview.value = Math.abs(document.form.textview.value)
+        }
+
+        function sqrt() {
+            document.form.textview.value = Math.sqrt(document.form.textview.value)
+        }
+
+        function sqr() {
+            document.form.textview.value = Math.pow(document.form.textview.value, 2)
+        }
+
+        function pr() {
+            document.form.textview.value = Math.pow(document.form.textview.value, document.form.textview.value)
+        }
+
+        function lon() {
+            document.form.textview.value = Math.E
+        }
+
+        function pi() {
+            document.form.textview.value += Math.PI
+        }
+
+        function stb() {
+            document.form.textview.value += '('
+        }
+
+        function enb() {
+            document.form.textview.value += ')'
+        }
+
+        function mem() {
+            document.form.textview.value += 'M+'
+        }
+
+        function mod() {
+            document.form.textview.value += '%'
+        }
+
+        function exp() {
+            document.form.textview.value += Math.exp(document.form.textview.value)
+        }
+
+        function dot() {
+            document.form.textview.value += '.'
+        }
+
+        function changesign(input) {
+            if (document.form.textview.value.substring(0, 1) == "-")
+                document.form.textview.value = document.form.textview.value.substring(1, document.form.textview.value.length)
+            else
+                document.form.textview.value = "-" + document.form.textview.value
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <form name="form">
+            <input class="textview" name="textview">
+        </form>
+        <div class="btns">
+            <p>
+                <input type="button" value="SIN" class="button black" onclick="sn()">
+                <input type="button" value="COS" class="button black" onclick="cs()">
+                <input type="button" value="TAN" class="button black" onclick="tn()">
+                <input type="button" value="(-)" class="button black" onclick="changesign(document.form.textview.value)">
+                <input type="button" value="ABS" class="button black" onclick="abs()">
+            </p>
+            <p>
+                <input type="button" value="&radic;" class="button black" onclick="sqrt()">
+                <input type="button" value="SQR" class="button black" onclick="sqr()">
+                <input type="button" value="^" class="button black" onclick="pr()">
+                <input type="button" value="LOG" class="button black" onclick="lg()">
+                <input type="button" value="ln" class="button black" onclick="lon">
+            </p>
+            <p>
+                <input type="button" value="CLR" class="button black" onclick="clean()">
+                <input type="button" value="(" class="button black" onclick="stb()">
+                <input type="button" value=")" class="button black" onclick="enb()">
+                <input type="button" value="M+" class="button black" onclick="mem()">
+                <input type="button" value="MOD" class="button black" onclick="mod">
+            </p>
+            <p>
+                <input type="button" value="7" class="button silver" onclick="insert(7)">
+                <input type="button" value="8" class="button silver" onclick="insert(8)">
+                <input type="button" value="9" class="button silver" onclick="insert(9)">
+                <input type="button" value="DEL" class="button red" onclick="back()">
+                <input type="button" value="C" class="button red" onclick="clean()">
+            </p>
+            <p>
+                <input type="button" value="4" class="button silver" onclick="insert(4)">
+                <input type="button" value="5" class="button silver" onclick="insert(5)">
+                <input type="button" value="6" class="button silver" onclick="insert(6)">
+                <input type="button" value="X" class="button silver" onclick="insert('*')">
+                <input type="button" value="/" class="button silver" onclick="insert('/')">
+            </p>
+            <p>
+                <input type="button" value="1" class="button silver" onclick="insert(1)">
+                <input type="button" value="2" class="button silver" onclick="insert(2)">
+                <input type="button" value="3" class="button silver" onclick="insert(3)">
+                <input type="button" value="+" class="button silver" onclick="insert('+')">
+                <input type="button" value="-" class="button silver" onclick="insert('-')">
+            </p>
+            <p>
+                <input type="button" value="0" class="button silver" onclick="insert(0)">
+                <input type="button" value="." class="button silver" onclick="dot()">
+                <input type="button" value="EXP" class="button silver" onclick="exp()">
+                <input type="button" value="π" class="button silver" onclick="pi()">
+                <input type="button" value="=" class="button silver" onclick="equal()">
+            </p>
+
+        </div>
+    </div>
+</body>
+
+</html>
